@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/UEP/UEP.iml" filepath="$PROJECT_DIR$/UEP/UEP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UEPProject.iml" filepath="$PROJECT_DIR$/UEPProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/framework.iml" filepath="$PROJECT_DIR$/framework/framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pluginsForMl/otherPlugin/otherPlugin.iml" filepath="$PROJECT_DIR$/pluginsForMl/otherPlugin/otherPlugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pluginsForMl/pluginsForMl.iml" filepath="$PROJECT_DIR$/pluginsForMl/pluginsForMl.iml" />
+    </modules>
+  </component>
+</project>

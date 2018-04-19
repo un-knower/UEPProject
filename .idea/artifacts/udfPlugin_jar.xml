@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="udfPlugin:jar">
+    <output-path>$PROJECT_DIR$/UEP/out/artifacts/udfPlugins</output-path>
+    <root id="archive" name="udfPlugins.jar">
+      <element id="module-output" name="otherPlugin" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="hy.bds.src">
+    <output-path>$PROJECT_DIR$/out/artifacts/hy_bds_src</output-path>
+    <root id="archive" name="hy.bds.src.jar">
+      <element id="dir-copy" path="$PROJECT_DIR$/../framework/src/com" />
+      <element id="dir-copy" path="$PROJECT_DIR$/../pluginsForMl/src/com" />
+      <element id="dir-copy" path="$PROJECT_DIR$/../pluginsForMl/otherPlugin/src/com" />
+      <element id="dir-copy" path="$PROJECT_DIR$/interface/com" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="spark-2">
+    <CLASSES>
+      <root url="file://D:/base/spark-2" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://D:/base/spark-2" />
+      <root url="jar://F:/.IdeaIC15/plugins/.ideaLibSources/commons-httpclient-3.1-sources.jar!/" />
+      <root url="jar://F:/.IdeaIC15/plugins/.ideaLibSources/spark-mllib_2.11-2.0.0-sources.jar!/" />
+      <root url="jar://F:/.IdeaIC15/plugins/.ideaLibSources/spark-sql_2.11-2.0.0-sources.jar!/" />
+      <root url="jar://F:/.IdeaIC15/plugins/.ideaLibSources/spark-catalyst_2.11-2.0.0-sources.jar!/" />
+    </SOURCES>
+    <jarDirectory url="file://D:/base/spark-2" recursive="false" />
+    <jarDirectory url="file://D:/base/spark-2" recursive="false" type="SOURCES" />
+  </library>
+</component>

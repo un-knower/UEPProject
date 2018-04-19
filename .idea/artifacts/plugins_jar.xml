@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="plugins:jar">
+    <output-path>$PROJECT_DIR$/UEP/out/artifacts/hy_bds_plugins</output-path>
+    <root id="archive" name="hy-bds-plugins.jar">
+      <element id="module-output" name="pluginsForMl" />
+    </root>
+  </artifact>
+</component>
