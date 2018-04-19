@@ -241,7 +241,7 @@ object ParamFromUser {
       * Param for how to handle invalid entries. Options are skip (which will filter out rows with bad values), or error (which will throw an error). More options may be added later.
       */
     val handleInvalid = "handleInvalid"
-    val separator = '@'
+    //val separator = '@'
   }
 
 }

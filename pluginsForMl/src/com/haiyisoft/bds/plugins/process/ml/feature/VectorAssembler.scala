@@ -21,7 +21,7 @@ class VectorAssembler extends Data2VecInter with HasMultipleInputParamByName {
   }
 
   override def getNecessaryParamList: Array[ParamFromUser] = {
-    val inputCol = multipleInputColFromUser("Double",SYMBOL_SEPARATOR)
+    val inputCol = multipleInputColFromUser("Double")
     val outputCol = outputColFromUser("ml.Vector").addDefaultValue("features")
     Array(inputCol,outputCol)
   }

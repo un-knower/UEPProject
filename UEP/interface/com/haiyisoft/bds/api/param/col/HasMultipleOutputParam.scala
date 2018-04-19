@@ -28,7 +28,10 @@ trait HasMultipleOutputParam extends WithParam {
     */
   def setOutputCol(name: String, others: String*): this.type = {
     val res = name +: others
-    addParam(OUTPUT_COL_KEY, res.mkString(ParamFromUser.variables.separator.toString))
+    addParam(OUTPUT_COL_KEY,
+      multiParam2Str(res:_*)
+      //res.mkString(ParamFromUser.variables.separator.toString)
+    )
     this
   }
 

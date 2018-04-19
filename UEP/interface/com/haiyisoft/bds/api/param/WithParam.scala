@@ -2,6 +2,7 @@ package com.haiyisoft.bds.api.param
 
 import java.util
 
+import com.amazonaws.util.json.JSONArray
 import com.haiyisoft.bds.api.data.Converter
 
 import scala.collection.Map
@@ -19,7 +20,6 @@ import scala.util.Try
   */
 trait WithParam extends Logging {
   protected val paramMap: util.HashMap[String, Any] = new util.HashMap[String, Any]
-  final val SYMBOL_SEPARATOR = ParamFromUser.variables.separator
 
   //插件默认名字
   def getPluginName: String
@@ -38,7 +38,7 @@ trait WithParam extends Logging {
       if (param.nonEmpty) {
         val paramFromUser = param.get
         if (paramFromUser.getAllowMultipleResult) {
-          getParam(paramFromUser.getName).toString.split('@')
+          jsonArr2Arr(getParam(paramFromUser.getName).toString) //getParam(paramFromUser.getName).toString.split('@')
         }
         else
           Array(getParam(paramFromUser.getName).toString)
@@ -53,6 +53,18 @@ trait WithParam extends Logging {
       case SELECT => getOptionParam(input)
       case FREE_COMBINATION => combinationSchema()
     }
+  }
+
+
+  def multiParam2Str(params: String*): String = {
+    val res = new JSONArray
+    params.foreach(res.put)
+    res.toString()
+  }
+
+  def jsonArr2Arr(jSONArray: String): Array[String] = {
+    val jArr = new JSONArray(jSONArray)
+    (0 until jArr.length()).map(jArr.getString).toArray
   }
 
   def checkSchema(lastColumns: Array[String], toCheckedColumns: Array[String]): Boolean =
@@ -90,7 +102,7 @@ trait WithParam extends Logging {
       val s = Try {
         value match {
           case as: Array[String] => as
-          case s: String => s.split(SYMBOL_SEPARATOR)
+          case s: String => jsonArr2Arr(s)
           case ts: TraversableOnce[_] => ts.map(_.toString).toArray
           case js: java.util.Collection[_] =>
             val builder = Array.newBuilder[String]
@@ -114,7 +126,7 @@ trait WithParam extends Logging {
       val s = Try {
         value match {
           case as: Array[Double] => as
-          case s: String => s.split(SYMBOL_SEPARATOR).map(_.toDouble)
+          case s: String => jsonArr2Arr(s).map(_.toDouble)
           case ts: TraversableOnce[_] => ts.map(_.toString.toDouble).toArray
           case js: java.util.Collection[_] =>
             val builder = Array.newBuilder[Double]

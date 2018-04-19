@@ -75,7 +75,7 @@ class DictionaryStat extends DataTransformInter with HasMultipleInputParamByName
     println(keyColumns.mkString("."))
     val dicMap = getDictionaryMap.map(x => (x._1, x._2))
     dicMap.foreach(x => println(x._1 + "=>" + x._2.mkString(",")))
-    val outputs = getOutputCol.split('@')
+    val outputs = jsonArr2Arr(getOutputCol) //getOutputCol.split('@')
     println("outputs" + outputs.mkString(","))
 
     val operations: Array[(String, String, String)] = getOperations

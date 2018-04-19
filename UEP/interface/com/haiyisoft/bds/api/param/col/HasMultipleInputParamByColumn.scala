@@ -52,10 +52,9 @@ trait HasMultipleInputParamByColumn extends HasInputParam {
   }
 
   //TODO 也许需要针对特殊列（abs之类）进行处理？
-  protected def multipleInputColFromUser(inType: String = null, separator: Char = '@'): ParamFromUser = {
-    val s = if (separator != '@') s",以${separator}分隔" else ""
+  protected def multipleInputColFromUser(inType: String = null): ParamFromUser = {
     val t = if (inType != null) s",所有列列数据类型应该为$inType" else ""
-    ParamFromUser.String(ParamFromUser.variables.inputColName, s"请输入传入列列名#inputColNames$s$t", notEmpty = true)
+    ParamFromUser.String(ParamFromUser.variables.inputColName, s"请输入传入列列名#inputColNames$t", notEmpty = true)
       .setAllowMultipleResult(true)
       .setInputTypeName()
       .setShortName("输入列")

@@ -12,7 +12,8 @@ import scala.collection.mutable.ArrayBuffer
 trait HasMultipleInputParamByName extends HasInputParam {
 
   override def setInputCols(name: String, otherName: String*): this.type = {
-    addParam(INPUT_COL_KEY, (name +: otherName).mkString(SYMBOL_SEPARATOR.toString))
+    addParam(INPUT_COL_KEY, multiParam2Str(name +: otherName: _*))
+    //addParam(INPUT_COL_KEY, (name +: otherName).mkString(SYMBOL_SEPARATOR.toString))
     this
   }
 
@@ -30,7 +31,7 @@ trait HasMultipleInputParamByName extends HasInputParam {
     if (res == null) {
       throw new IllegalArgumentException("should set InputCol and OutputCol")
     }
-    res.split(SYMBOL_SEPARATOR)
+    jsonArr2Arr(res)
   }
 
   protected override def getDefaultParamList: ArrayBuffer[ParamFromUser] = {
@@ -39,10 +40,9 @@ trait HasMultipleInputParamByName extends HasInputParam {
     s
   }
 
-  protected def multipleInputColFromUser(inType: String = null, separator: Char = '@'): ParamFromUser = {
-    val s = if (separator != '@') s",以${separator}分隔" else ""
+  protected def multipleInputColFromUser(inType: String = null): ParamFromUser = {
     val t = if (inType != null) s",所有列列数据类型应该为$inType" else ""
-    ParamFromUser.String(ParamFromUser.variables.inputColName, s"请输入传入列列名#inputColNames$s$t", true)
+    ParamFromUser.String(ParamFromUser.variables.inputColName, s"请输入传入列列名#inputColNames$t", notEmpty = true)
       .setAllowMultipleResult(true)
       .setNeedSchema(true)
       .setInputTypeName()
